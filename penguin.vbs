@@ -1,0 +1,1 @@
+CreateObject("Wscript.Shell").Run "penguin.bat",0,True
