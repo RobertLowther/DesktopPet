@@ -87,16 +87,16 @@ class Pet():
             self.popup_menu.grab_release()
 
     def RegisterAnimations(self):
-        self.animations["hatchAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\hatch.gif', format='gif -index %i' % (i)) for i in range(7)]
-        self.animations["idleToSleepAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\idle-sleep.gif', format='gif -index %i' % (i)) for i in range(3)]
-        self.animations["idleAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\idle.gif', format='gif -index %i' % (i)) for i in range(7)]
-        self.animations["sleepToIdleAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\sleep-idle.gif', format='gif -index %i' % (i)) for i in range(3)]
-        self.animations["sleepAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\sleep.gif', format='gif -index %i' % (i)) for i in range(4)]
-        self.animations["walkRightAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\walk-right.gif', format='gif -index %i' % (i)) for i in range(4)]
-        self.animations["walkLeftAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\walk-left.gif', format='gif -index %i' % (i)) for i in range(4)]
-        self.animations["danceAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\dance.gif', format='gif -index %i' % (i)) for i in range(4)]
-        self.animations["eatCookieAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\eat-cookie.gif', format='gif -index %i' % (i)) for i in range(10)]
-        self.animations["cryAnim"] = [tk.PhotoImage(file='.\\projectFiles\\images\\cry.gif', format='gif -index %i' % (i)) for i in range(7)]
+        self.animations["hatchAnim"] = [tk.PhotoImage(file='.\\data\\images\\hatch.gif', format='gif -index %i' % (i)) for i in range(7)]
+        self.animations["idleToSleepAnim"] = [tk.PhotoImage(file='.\\data\\images\\idle-sleep.gif', format='gif -index %i' % (i)) for i in range(3)]
+        self.animations["idleAnim"] = [tk.PhotoImage(file='.\\data\\images\\idle.gif', format='gif -index %i' % (i)) for i in range(7)]
+        self.animations["sleepToIdleAnim"] = [tk.PhotoImage(file='.\\data\\images\\sleep-idle.gif', format='gif -index %i' % (i)) for i in range(3)]
+        self.animations["sleepAnim"] = [tk.PhotoImage(file='.\\data\\images\\sleep.gif', format='gif -index %i' % (i)) for i in range(4)]
+        self.animations["walkRightAnim"] = [tk.PhotoImage(file='.\\data\\images\\walk-right.gif', format='gif -index %i' % (i)) for i in range(4)]
+        self.animations["walkLeftAnim"] = [tk.PhotoImage(file='.\\data\\images\\walk-left.gif', format='gif -index %i' % (i)) for i in range(4)]
+        self.animations["danceAnim"] = [tk.PhotoImage(file='.\\data\\images\\dance.gif', format='gif -index %i' % (i)) for i in range(4)]
+        self.animations["eatCookieAnim"] = [tk.PhotoImage(file='.\\data\\images\\eat-cookie.gif', format='gif -index %i' % (i)) for i in range(10)]
+        self.animations["cryAnim"] = [tk.PhotoImage(file='.\\data\\images\\cry.gif', format='gif -index %i' % (i)) for i in range(7)]
 
     def RegisterStates(self):
         self.states[HATCH] = AnimState(HATCH, self.animations["hatchAnim"], 2, 2, 2, loop=False)

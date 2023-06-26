@@ -1,4 +1,4 @@
 @echo off
 call .\.venv\scripts\activate
-python projectFiles\penguin.py
+python data\penguin.py
 exit
