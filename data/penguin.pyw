@@ -155,10 +155,12 @@ class Pet():
         if self.hungerTimer >= 90:
             self.hunger += 1
             self.hungerTimer = 0
+            if self.hunger > 100: self.hunger = 100
 
         if self.energyTimer >= 180:
             self.energy -= 1
             self.energyTimer = 0
+            if self.energy < 0: self.energy = 0
 
         # switch state when this one ends
         if self.stateTimer <= 0:
@@ -236,6 +238,7 @@ class Pet():
     def Feed(self):
         self.InitState(EAT_COOKIE)
         self.huger = 0
+        self.energy = 15
         print(f"hunger: {self.hunger}")
 
     def Sleep(self):
