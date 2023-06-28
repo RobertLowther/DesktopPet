@@ -73,7 +73,7 @@ class Pet():
         # register popup menu
         self.popup_menu = tk.Menu(self.label, tearoff=0)
         self.popup_menu.add_command(label="Feed", command = self.Feed)
-        self.popup_menu.add_command(label="Kill", command = self.Kill)
+        self.popup_menu.add_command(label="Exit", command = self.Kill)
         self.label.bind("<Button-3>", self.Popup)
 
         # run self.update() after 0ms when mainloop starts
@@ -121,7 +121,7 @@ class Pet():
                 self.InitState(SLEEP_TO_IDLE)
 
         elif key.keycode == 27:
-            self.kill = True
+            self.kill()
 
         elif key.keycode == 81:
             self.InitState(CRY)
@@ -214,12 +214,10 @@ class Pet():
             elif self.hunger >= 80:
                 self.InitState(CRY)
 
-            elif chance <= 35:
+            elif chance <= 42:
                 self.InitState(WALK_LEFT)
-            elif chance <= 70:
-                self.InitState(WALK_RIGHT)
             elif chance <= 85:
-                self.InitState(IDLE_TO_SLEEP)
+                self.InitState(WALK_RIGHT)
             else:
                 if self.hunger < 50:
                     self.InitState(DANCE)
