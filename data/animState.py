@@ -1,21 +1,29 @@
-import tkinter as tk
+import random
+from stats import Stats
 
 class AnimState():
-    def __init__(self, name:str, animation:tk.PhotoImage, loopTime:int, minDurration:int, maxDurration:int, moveSpeed:int = 0, loop:bool = True) -> None:
-        self.name = name
-        self.loop = loop
-        self.minDurration = minDurration
-        self.maxDurration = maxDurration
-        self.animation = animation
-        self.frameCount = len(animation)
-        self.loopTime = loopTime
-        self.frameTime = loopTime / self.frameCount
-        self.moveSpeed = moveSpeed
+    def __init__(self) -> None:
+        self.loop = True
+        self.move = False
+        self.moveDir = 0
+        self.minDurration = None
+        self.maxDurration = None
+        self.durration = None
+        self.animation = None
+        self.frameCount = None
+        self.loopTime = None
+        self.frameTime = None
 
         self.currentFrame = 0
         self.frameTimer = 0
+        self.stateTimer = 0
+        self.complete = False
+        self.nextState = None
 
-    def Update(self, deltaTime):        
+    def EnterState(self):
+        self.durration = random.randint(self.minDurration, self.maxDurration)
+
+    def UpdateState(self, deltaTime, stats: Stats):        
         self.frameTimer += deltaTime
         if self.frameTimer >= self.frameTime:
             self.frameTimer -= self.frameTime
@@ -24,9 +32,18 @@ class AnimState():
             if self.loop == False and self.currentFrame == 0:
                 self.currentFrame = len(self.animation) - 1
 
-    def BeginState(self):
-        self.currentFrame = 0
-        self.frameTimer = 0
+        self.stateTimer += deltaTime
+        try:
+            if self.stateTimer >= self.durration:
+                self.ExitState(stats)
+        except:
+            print()
+    
+    def ExitState(self, stats: Stats):
+        self.complete = True
+
+    def NextState(self, stats: Stats):
+        pass
 
     def Image(self):
         return self.animation[self.currentFrame]
